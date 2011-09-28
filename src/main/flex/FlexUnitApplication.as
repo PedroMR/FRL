@@ -6,9 +6,10 @@ package
 	
 	import flash.display.Sprite;
 	
-	import flexUnitTests.FRLTest;
-	
 	import flexunit.flexui.FlexUnitTestRunnerUIAS;
+	
+	import frl.maze.FixedMazeGeneratorTest;
+	import frl.view.TextFieldViewRendererTest;
 	
 	public class FlexUnitApplication extends Sprite
 	{
@@ -28,7 +29,8 @@ package
 		{
 			var testsToRun:Array = new Array();
 			testsToRun.push(acceptance.AcceptanceTests);
-			testsToRun.push(flexUnitTests.FRLTest);
+			testsToRun.push(frl.maze.FixedMazeGeneratorTest);
+			testsToRun.push(frl.view.TextFieldViewRendererTest);
 			return testsToRun;
 		}
 	}

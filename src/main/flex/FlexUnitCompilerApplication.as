@@ -8,11 +8,15 @@ package
 	import acceptance.AcceptanceTests;
 	
 	import flash.display.Sprite;
-	import flexUnitTests.FRLTest;
+	import frl.view.FRLTest;
+	import frl.view.TextFieldViewRendererTest;
+	import frl.maze.FixedMazeGeneratorTest;
 	
 	public class FlexUnitCompilerApplication extends Sprite
 	{
-		private var flexUnitTests_FRLTest_obj:flexUnitTests.FRLTest;
+		private var frl_maze_FixedMazeGeneratorTest_obj:frl.maze.FixedMazeGeneratorTest;
+		private var view_TextFieldViewRendererTest_obj:frl.view.TextFieldViewRendererTest;
+		private var flexUnitTests_FRLTest_obj:frl.view.FRLTest;
 		
 		private var acceptance_AcceptanceTests_obj:acceptance.AcceptanceTests;
 	}

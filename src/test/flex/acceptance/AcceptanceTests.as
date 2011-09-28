@@ -4,15 +4,19 @@ package acceptance
 	
 	import org.flexunit.assertThat;
 	import org.hamcrest.text.containsString;
+	
+	import frl.view.TextFieldViewRenderer;
+	import frl.view.ViewRenderer;
+	import frl.FRL;
 
 	public class AcceptanceTests
 	{	
-		private var frl:FRL;
+		private var mainApp:FRL;
 		
 		[Before]
 		public function setUp():void
 		{
-			frl = new FRL();
+			mainApp = new FRL();
 		}
 		
 		[After]
@@ -23,17 +27,22 @@ package acceptance
 		[Test]
 		public function whenGameRuns_canSeeMaze():void
 		{
-			var gameView:TextField = getView();
+			var mazeView:TextField = getMazeView();
 			
-			var display:String = gameView.text;
+			var display:String = mazeView.text;
 			
 			assertThat(display, containsString('###'));
 			assertThat(display, containsString('...'));
 		}
 
-		private function getView():TextField
+		private function getMazeView():TextField
 		{
-			return frl.getChildByName("view") as TextField
+			return getView().getChildByName("maze") as TextField;
+		}
+		
+		private function getView():TextFieldViewRenderer
+		{
+			return mainApp.getChildByName("view") as TextFieldViewRenderer;
 		}
 		
 	}
