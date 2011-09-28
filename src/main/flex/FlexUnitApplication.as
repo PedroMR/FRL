@@ -2,14 +2,11 @@ package
 {
 	import Array;
 	
-	import acceptance.AcceptanceTests;
-	
 	import flash.display.Sprite;
 	
 	import flexunit.flexui.FlexUnitTestRunnerUIAS;
 	
-	import frl.maze.FixedMazeGeneratorTest;
-	import frl.view.TextFieldViewRendererTest;
+	import frl.maze.MazeTest;
 	
 	public class FlexUnitApplication extends Sprite
 	{
@@ -28,9 +25,7 @@ package
 		public function currentRunTestSuite():Array
 		{
 			var testsToRun:Array = new Array();
-			testsToRun.push(acceptance.AcceptanceTests);
-			testsToRun.push(frl.maze.FixedMazeGeneratorTest);
-			testsToRun.push(frl.view.TextFieldViewRendererTest);
+			testsToRun.push(frl.maze.MazeTest);
 			return testsToRun;
 		}
 	}
