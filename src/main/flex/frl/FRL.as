@@ -4,12 +4,12 @@ package frl
 	import flash.text.TextField;
 	import flash.text.TextFormat;
 	
-	import frl.maze.Maze;
 	import frl.maze.FixedMazeGenerator;
-	
-	import frl.view.TextFieldViewRenderer;
-	import frl.view.ViewRenderer;
+	import frl.maze.Maze;
 	import frl.maze.MazeGenerator;
+	import frl.view.TextFieldViewRenderer;
+	import frl.view.TextMazeRenderer;
+	import frl.view.ViewRenderer;
 	
 	public class FRL extends Sprite implements ViewRenderer
 	{
@@ -36,7 +36,7 @@ package frl
 
 		private function setupView():void
 		{
-			viewRenderer = new TextFieldViewRenderer();
+			viewRenderer = new TextFieldViewRenderer(new TextMazeRenderer());
 			viewRenderer.name = "view";
 			addChild(viewRenderer);
 		}

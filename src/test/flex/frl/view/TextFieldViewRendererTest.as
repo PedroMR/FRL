@@ -3,6 +3,7 @@ package frl.view
 	import flash.text.TextField;
 	
 	import org.flexunit.asserts.assertEquals;
+	import org.flexunit.asserts.assertNotNull;
 
 	public class TextFieldViewRendererTest
 	{		
@@ -11,14 +12,14 @@ package frl.view
 		[Before]
 		public function setUp():void
 		{
-			textFieldViewRenderer = new TextFieldViewRenderer();
+			textFieldViewRenderer = new TextFieldViewRenderer(new TextMazeRenderer());
 			
 		}
 		
 		[Test]
-		public function hasViewTextField():void
+		public function hasMazeViewTextField():void
 		{
-			 
+			 assertNotNull(getViewText());
 		}
 		
 		private function getViewText():String

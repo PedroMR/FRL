@@ -12,9 +12,11 @@ package
 	import frl.view.TextFieldViewRendererTest;
 	import frl.maze.FixedMazeGeneratorTest;
 	import frl.maze.MazeTest;
+	import frl.view.TextMazeRendererTest;
 	
 	public class FlexUnitCompilerApplication extends Sprite
 	{
+		private var frl_view_TextMazeRendererTest_obj:frl.view.TextMazeRendererTest;
 		private var frl_maze_MazeTest_obj:frl.maze.MazeTest;
 		private var frl_maze_FixedMazeGeneratorTest_obj:frl.maze.FixedMazeGeneratorTest;
 		private var view_TextFieldViewRendererTest_obj:frl.view.TextFieldViewRendererTest;

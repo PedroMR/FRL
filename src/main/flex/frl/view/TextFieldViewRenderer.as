@@ -11,10 +11,16 @@ package frl.view
 		public static const MAZE_VIEW_NAME:String = "maze";
 
 		private var mazeTF:TextField;
+		private var textMazeRenderer:TextMazeRenderer;
 
-		public function TextFieldViewRenderer()
+		public var rows:uint = 24;
+		public var columns:uint = 60;
+
+		public function TextFieldViewRenderer(textMazeRenderer:TextMazeRenderer)
 		{
 			super();
+			
+			this.textMazeRenderer = textMazeRenderer;
 			
 			mazeTF = new TextField();
 			mazeTF.name = MAZE_VIEW_NAME;
@@ -38,6 +44,8 @@ package frl.view
 		public function renderMaze(maze:Maze):void
 		{
 			// render maze as ASCII through setViewText
+			var text:String = textMazeRenderer.renderMaze(maze);
+			setViewText(text);
 		}
 	}
 }

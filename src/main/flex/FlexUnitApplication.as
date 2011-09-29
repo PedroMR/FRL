@@ -2,11 +2,16 @@ package
 {
 	import Array;
 	
+	import acceptance.AcceptanceTests;
+	
 	import flash.display.Sprite;
 	
 	import flexunit.flexui.FlexUnitTestRunnerUIAS;
 	
+	import frl.maze.FixedMazeGeneratorTest;
 	import frl.maze.MazeTest;
+	import frl.view.TextFieldViewRendererTest;
+	import frl.view.TextMazeRendererTest;
 	
 	public class FlexUnitApplication extends Sprite
 	{
@@ -26,6 +31,10 @@ package
 		{
 			var testsToRun:Array = new Array();
 			testsToRun.push(frl.maze.MazeTest);
+			testsToRun.push(acceptance.AcceptanceTests);
+			testsToRun.push(frl.view.TextFieldViewRendererTest);
+			testsToRun.push(frl.view.TextMazeRendererTest);
+			testsToRun.push(frl.maze.FixedMazeGeneratorTest);
 			return testsToRun;
 		}
 	}

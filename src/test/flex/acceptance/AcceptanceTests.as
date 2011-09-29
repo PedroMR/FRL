@@ -32,7 +32,7 @@ package acceptance
 			var display:String = mazeView.text;
 			
 			assertThat(display, containsString('###'));
-			assertThat(display, containsString('...'));
+			assertThat(display, containsString('\.\.\.'));
 		}
 
 		private function getMazeView():TextField
