@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<actionScriptProperties analytics="false" mainApplicationPath="FRL.as" projectUUID="697c3f78-5942-4f15-9a86-a15ffb36da54" version="6">
+<actionScriptProperties analytics="false" mainApplicationPath="frl/FRL.as" projectUUID="697c3f78-5942-4f15-9a86-a15ffb36da54" version="6">
   <compiler additionalCompilerArguments="-locale en_US" autoRSLOrdering="true" copyDependentFiles="true" fteInMXComponents="false" generateAccessible="true" htmlExpressInstall="true" htmlGenerate="false" htmlHistoryManagement="true" htmlPlayerVersionCheck="true" includeNetmonSwc="false" outputFolderPath="bin-debug" sourceFolderPath="src/main/flex" strict="true" targetPlayerVersion="0.0.0" useApolloConfig="false" useDebugRSLSwfs="true" verifyDigests="true" warn="true">
     <compilerSourcePath>
       <compilerSourcePathEntry kind="1" linkType="1" path="src/test/flex"/>
@@ -33,9 +33,9 @@
     <sourceAttachmentPath/>
   </compiler>
   <applications>
-    <application path="FlexUnitApplication.as"/>
+    <application path="frl/FRL.as"/>
     <application path="FlexUnitCompilerApplication.as"/>
-    <application path="FRL.as"/>
+    <application path="FlexUnitApplication.as"/>
   </applications>
   <modules/>
   <buildCSSFiles/>
