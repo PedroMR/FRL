@@ -4,58 +4,21 @@ package frl.maze
 
 	public class Maze
 	{
-		private var dimensions:Rectangle;
+		private var walls:MazeWalls;
 		
-		private var rows:Array = [];
+		public function Maze(walls : MazeWalls)
+		{
+			this.walls = walls;
+		}
 
-		public function Maze()
-		{
-			dimensions = null;
-		}
-		
-		public function setEmpty(x:int, y:int) : void
-		{
-			if (!rows[y])
-			{
-				rows[y] = [];
-			}
-			rows[y][x] = true;
-			
-			if (dimensions == null)
-			{
-				dimensions = new Rectangle(x, y, 1, 1);
-			}
-			else
-			{
-				dimensions.right = Math.max(dimensions.right, x+1);
-				dimensions.left = Math.min(dimensions.left, x);
-				dimensions.bottom = Math.max(dimensions.bottom, y+1);
-				dimensions.top = Math.min(dimensions.top, y);
-			}
-		}
-		
-		public function isEmptyAt(x:int, y:int) : Boolean
-		{
-			return rows[y] && rows[y][x];
-		}
-		
 		public function getDimensions():Rectangle
 		{
-			if (dimensions == null)
-			{
-				return new Rectangle(0, 0, 1, 1);
-			}
-			
-			return dimensions.clone();
+			return walls.getDimensions();
 		}
-
-		public function setEmptyArea(area:Rectangle):void
+		
+		public function hasWallAt(x:int, y:int) : Boolean
 		{
-			for (var y:int = area.top; y < area.bottom; y++) {
-				for (var x:int = area.left; x < area.right; x++) {
-					setEmpty(x, y);
-				}
-			}
+			return !walls.isEmptyAt(x, y);
 		}
 	}
 }

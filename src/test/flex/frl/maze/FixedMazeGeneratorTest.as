@@ -4,18 +4,18 @@ package frl.maze
 
 	public class FixedMazeGeneratorTest
 	{		
-		private var mazeGen:FixedMazeGenerator;
+		private var mazeGen:FixedMazeWallGenerator;
 		
 		[Before]
 		public function setUp():void
 		{
-			mazeGen = new FixedMazeGenerator();
+			mazeGen = new FixedMazeWallGenerator();
 		}
 
 		[Test]
 		public function createMaze_returnsNonNullMaze():void
 		{
-			assertNotNull(mazeGen.createMaze());
+			assertNotNull(mazeGen.createMazeWalls());
 		}
 		
 	}

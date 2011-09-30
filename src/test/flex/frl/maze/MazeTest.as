@@ -9,12 +9,12 @@ package frl.maze
 
 	public class MazeTest
 	{	
-		private var maze:Maze;
+		private var maze:MazeWalls;
 		
 		[Before]
 		public function setUp():void
 		{
-			maze = new Maze();
+			maze = new MazeWalls();
 		}
 		
 		[Test]

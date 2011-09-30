@@ -5,6 +5,7 @@ package frl.view
 	import flash.text.TextFormat;
 	
 	import frl.maze.Maze;
+	import frl.maze.MazeWalls;
 
 	public class TextFieldViewRenderer extends Sprite implements ViewRenderer
 	{

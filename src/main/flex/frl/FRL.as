@@ -4,9 +4,10 @@ package frl
 	import flash.text.TextField;
 	import flash.text.TextFormat;
 	
-	import frl.maze.FixedMazeGenerator;
+	import frl.maze.FixedMazeWallGenerator;
 	import frl.maze.Maze;
-	import frl.maze.MazeGenerator;
+	import frl.maze.MazeWallGenerator;
+	import frl.maze.MazeWalls;
 	import frl.view.TextFieldViewRenderer;
 	import frl.view.TextMazeRenderer;
 	import frl.view.ViewRenderer;
@@ -25,8 +26,8 @@ package frl
 
 		private function createMaze():void
 		{
-			var mazeGenerator:MazeGenerator = new FixedMazeGenerator();
-			maze = mazeGenerator.createMaze();
+			var mazeGenerator:MazeWallGenerator = new FixedMazeWallGenerator();
+			maze = new Maze(mazeGenerator.createMazeWalls());
 		}
 		
 		private function renderMaze():void

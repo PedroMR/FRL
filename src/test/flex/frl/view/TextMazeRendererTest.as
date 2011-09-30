@@ -3,13 +3,14 @@ package frl.view
 	import flash.geom.Rectangle;
 	
 	import frl.maze.Maze;
+	import frl.maze.MazeWalls;
 	
 	import org.flexunit.asserts.assertEquals;
 
 	public class TextMazeRendererTest
 	{		
 		private var textMazeRenderer:TextMazeRenderer;
-		private var maze:Maze;
+		private var mazeWalls:MazeWalls;
 		private var mazeText:String;
 
 		[Before]
@@ -39,20 +40,20 @@ package frl.view
 
 		private function renderMaze():void
 		{
-			mazeText = textMazeRenderer.renderMaze(maze);
+			mazeText = textMazeRenderer.renderMaze(new Maze(mazeWalls));
 		}
 
 
 		private function createMaze():void
 		{
-			maze = new Maze();
+			mazeWalls = new MazeWalls();
 		}
 
 		[Test]
 		public function renderSingleCellMazeAs1x1Room() : void
 		{
 			createMaze();
-			maze.setEmpty(0,0);
+			mazeWalls.setEmpty(0,0);
 			
 			checkResultIs("###\n#.#\n###\n");
 		}
@@ -61,7 +62,7 @@ package frl.view
 		public function renderSingleCellMazeOffCornerAs1x1Room() : void
 		{
 			createMaze();
-			maze.setEmpty(10,10);
+			mazeWalls.setEmpty(10,10);
 			
 			checkResultIs("###\n#.#\n###\n");
 		}
@@ -70,7 +71,7 @@ package frl.view
 		public function renderARoom() : void
 		{
 			createMaze();
-			maze.setEmptyArea(new Rectangle(0, 1, 3, 2));
+			mazeWalls.setEmptyArea(new Rectangle(0, 1, 3, 2));
 			
 			checkResultIs("#####\n#...#\n#...#\n#####\n");
 		}
@@ -79,8 +80,8 @@ package frl.view
 		public function renderTwoRooms() : void
 		{
 			createMaze();
-			maze.setEmptyArea(new Rectangle(0, 1, 3, 2));
-			maze.setEmptyArea(new Rectangle(6, 0, 2, 2));
+			mazeWalls.setEmptyArea(new Rectangle(0, 1, 3, 2));
+			mazeWalls.setEmptyArea(new Rectangle(6, 0, 2, 2));
 			
 			checkResultIs("##########\n#######..#\n#...###..#\n#...######\n##########\n");
 		}

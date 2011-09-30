@@ -3,6 +3,7 @@ package frl.view
 	import flash.geom.Rectangle;
 	
 	import frl.maze.Maze;
+	import frl.maze.MazeWalls;
 
 	public class TextMazeRenderer
 	{
@@ -19,12 +20,22 @@ package frl.view
 			{
 				for (var x:int = viewBounds.left - 1; x <= viewBounds.right; x++)
 				{
-					text += maze.isEmptyAt(x, y) ? "." : "#";
+					var character:String = getCharacterFor(maze, x, y);
+					text += character;
 				}
 				text += '\n';
 			}
 			
 			return text;
+		}
+
+		private function getCharacterFor(maze:Maze, x:int, y:int):String
+		{
+			if (maze.hasWallAt(x, y))
+			{
+				return "#";
+			}
+			return ".";
 		}
 	}
 }
