@@ -2,12 +2,13 @@ package acceptance
 {
 	import flash.text.TextField;
 	
-	import org.flexunit.assertThat;
-	import org.hamcrest.text.containsString;
-	
+	import frl.FRL;
 	import frl.view.TextFieldViewRenderer;
 	import frl.view.ViewRenderer;
-	import frl.FRL;
+	
+	import org.flexunit.assertThat;
+	import org.hamcrest.text.containsString;
+	import org.hamcrest.text.re;
 
 	public class AcceptanceTests
 	{	
@@ -27,13 +28,20 @@ package acceptance
 		[Test]
 		public function whenGameRuns_canSeeMaze():void
 		{
-			var mazeView:TextField = getMazeView();
-			
-			var display:String = mazeView.text;
+			var display:String = getMazeDisplay();
 			
 			assertThat(display, containsString('###'));
 			assertThat(display, containsString('\.\.\.'));
 		}
+
+		private function getMazeDisplay():String
+		{
+			var mazeView:TextField = getMazeView();
+		
+			var display:String = mazeView.text;
+			return display;
+		}
+
 
 		private function getMazeView():TextField
 		{
@@ -44,6 +52,19 @@ package acceptance
 		{
 			return mainApp.getChildByName("view") as TextFieldViewRenderer;
 		}
+
+		[Test]
+		public function whenGameRuns_canSeeAvatarInMaze() : void
+		{
+			assertThat(getMazeDisplay(), re(/[\.#]@[\.#]/));
+		}
+		/*
+		[Test]
+		public function whenGameRuns_canOnlySeeSpacesAroundYou() : void
+		{
+			
+		}
+		*/
 		
 	}
 }
