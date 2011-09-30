@@ -1,5 +1,6 @@
 package frl.maze
 {
+	import flash.geom.Point;
 	import flash.geom.Rectangle;
 
 	public class Maze
@@ -16,9 +17,9 @@ package frl.maze
 			return walls.getDimensions();
 		}
 		
-		public function hasWallAt(x:int, y:int) : Boolean
+		public function hasWallAt(position:Point) : Boolean
 		{
-			return !walls.isEmptyAt(x, y);
+			return !walls.isEmptyAt(position);
 		}
 	}
 }

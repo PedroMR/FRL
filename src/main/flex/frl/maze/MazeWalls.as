@@ -1,5 +1,6 @@
 package frl.maze
 {
+	import flash.geom.Point;
 	import flash.geom.Rectangle;
 
 	public class MazeWalls
@@ -13,8 +14,10 @@ package frl.maze
 			dimensions = null;
 		}
 		
-		public function setEmpty(x:int, y:int) : void
+		public function setEmpty(position : Point) : void
 		{
+			var x:int = position.x;
+			var y:int = position.y;
 			if (!rows[y])
 			{
 				rows[y] = [];
@@ -34,8 +37,10 @@ package frl.maze
 			}
 		}
 		
-		public function isEmptyAt(x:int, y:int) : Boolean
+		public function isEmptyAt(position:Point) : Boolean
 		{
+			var x:int = position.x;
+			var y:int = position.y;
 			return rows[y] && rows[y][x];
 		}
 		
@@ -51,9 +56,11 @@ package frl.maze
 
 		public function setEmptyArea(area:Rectangle):void
 		{
+			var position:Point = new Point();
 			for (var y:int = area.top; y < area.bottom; y++) {
 				for (var x:int = area.left; x < area.right; x++) {
-					setEmpty(x, y);
+					position.x = x; position.y = y;
+					setEmpty(position);
 				}
 			}
 		}

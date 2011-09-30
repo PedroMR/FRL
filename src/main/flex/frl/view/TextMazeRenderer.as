@@ -1,5 +1,6 @@
 package frl.view
 {
+	import flash.geom.Point;
 	import flash.geom.Rectangle;
 	
 	import frl.maze.Maze;
@@ -16,11 +17,13 @@ package frl.view
 			var viewBounds:Rectangle = maze.getDimensions();
 			var text:String = "";
 			
+			var position:Point = new Point();
 			for (var y:int = viewBounds.top - 1; y <= viewBounds.bottom; y++)
 			{
 				for (var x:int = viewBounds.left - 1; x <= viewBounds.right; x++)
 				{
-					var character:String = getCharacterFor(maze, x, y);
+					position.x = x; position.y = y;
+					var character:String = getCharacterFor(maze, position);
 					text += character;
 				}
 				text += '\n';
@@ -29,9 +32,9 @@ package frl.view
 			return text;
 		}
 
-		private function getCharacterFor(maze:Maze, x:int, y:int):String
+		private function getCharacterFor(maze:Maze, position:Point):String
 		{
-			if (maze.hasWallAt(x, y))
+			if (maze.hasWallAt(position))
 			{
 				return "#";
 			}

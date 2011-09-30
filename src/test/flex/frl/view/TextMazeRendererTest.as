@@ -1,5 +1,6 @@
 package frl.view
 {
+	import flash.geom.Point;
 	import flash.geom.Rectangle;
 	
 	import frl.maze.Maze;
@@ -53,7 +54,7 @@ package frl.view
 		public function renderSingleCellMazeAs1x1Room() : void
 		{
 			createMaze();
-			mazeWalls.setEmpty(0,0);
+			mazeWalls.setEmpty(new Point(0,0));
 			
 			checkResultIs("###\n#.#\n###\n");
 		}
@@ -62,7 +63,7 @@ package frl.view
 		public function renderSingleCellMazeOffCornerAs1x1Room() : void
 		{
 			createMaze();
-			mazeWalls.setEmpty(10,10);
+			mazeWalls.setEmpty(new Point(10,10));
 			
 			checkResultIs("###\n#.#\n###\n");
 		}
