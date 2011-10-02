@@ -9,7 +9,7 @@ package
 	import flexunit.flexui.FlexUnitTestRunnerUIAS;
 	
 	import frl.maze.FixedMazeGeneratorTest;
-	import frl.maze.MazeTest;
+	import frl.maze.MazeWallsTest;
 	import frl.view.TextFieldViewRendererTest;
 	import frl.view.TextMazeRendererTest;
 	
@@ -30,11 +30,11 @@ package
 		public function currentRunTestSuite():Array
 		{
 			var testsToRun:Array = new Array();
-			testsToRun.push(frl.maze.MazeTest);
 			testsToRun.push(acceptance.AcceptanceTests);
 			testsToRun.push(frl.view.TextFieldViewRendererTest);
 			testsToRun.push(frl.view.TextMazeRendererTest);
 			testsToRun.push(frl.maze.FixedMazeGeneratorTest);
+			testsToRun.push(frl.maze.MazeWallsTest);
 			return testsToRun;
 		}
 	}
