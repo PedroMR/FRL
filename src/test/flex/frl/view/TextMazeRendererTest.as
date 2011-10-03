@@ -56,7 +56,7 @@ package frl.view
 			createMaze();
 			mazeWalls.setEmpty(new Point(0,0));
 			
-			checkResultIs("###\n#.#\n###\n");
+			checkResultIs("###\n#@#\n###\n");
 		}
 
 		[Test]
