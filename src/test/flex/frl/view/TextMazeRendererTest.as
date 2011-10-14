@@ -18,6 +18,7 @@ package frl.view
 		public function setUp():void
 		{
 			textMazeRenderer = new TextMazeRenderer();
+			textMazeRenderer.renderWallsOnly = true;
 		}
 		
 		[Test]
@@ -51,10 +52,11 @@ package frl.view
 		}
 
 		[Test]
-		public function renderSingleCellMazeAs1x1Room() : void
+		public function renderSingleCellMazeAs1x1RoomWithPlayer() : void
 		{
 			createMaze();
 			mazeWalls.setEmpty(new Point(0,0));
+			textMazeRenderer.renderWallsOnly = false;
 			
 			checkResultIs("###\n#@#\n###\n");
 		}

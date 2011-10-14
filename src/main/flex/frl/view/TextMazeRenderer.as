@@ -8,6 +8,8 @@ package frl.view
 
 	public class TextMazeRenderer
 	{
+		public var renderWallsOnly:Boolean = false;
+		
 		public function TextMazeRenderer()
 		{
 		}
@@ -34,9 +36,12 @@ package frl.view
 
 		private function getCharacterFor(maze:Maze, position:Point):String
 		{
-			if (maze.getPlayerPosition().equals(position))
+			if (!renderWallsOnly)
 			{
-				return '@';
+				if (maze.getPlayerPosition().equals(position))
+				{
+					return '@';
+				}
 			}
 			if (maze.hasWallAt(position))
 			{
